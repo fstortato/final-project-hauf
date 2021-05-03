@@ -1,0 +1,523 @@
+--------------------------------------------------------------------------------
+Release 14.2 Trace  (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+/sse/eda/xilinx-14.2/14.2/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v
+3 -s 5 -n 3 -fastpaths -xml SW.twx SW.ncd -o SW.twr SW.pcf -ucf SW.ucf
+
+Design file:              SW.ncd
+Physical constraint file: SW.pcf
+Device,package,speed:     xc3s400,tq144,-5 (PRODUCTION 1.39 2012-07-09)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 5844 paths analyzed, 391 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   7.751ns.
+--------------------------------------------------------------------------------
+
+Paths for end point controller/counter_tens_minutes_1 (SLICE_X14Y12.G2), 40 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     42.249ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               controller/current_state_FSM_FFd2 (FF)
+  Destination:          controller/counter_tens_minutes_1 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      7.751ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: controller/current_state_FSM_FFd2 to controller/counter_tens_minutes_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y45.XQ      Tcko                  0.626   controller/current_state_FSM_FFd2
+                                                       controller/current_state_FSM_FFd2
+    SLICE_X16Y17.G1      net (fanout=18)       4.143   controller/current_state_FSM_FFd2
+    SLICE_X16Y17.Y       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_seconds_mux0001<0>11_SW31
+    SLICE_X16Y17.F2      net (fanout=1)        0.462   controller/counter_tens_seconds_mux0001<0>11_SW31/O
+    SLICE_X16Y17.X       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_minutes_mux0001<0>11
+    SLICE_X14Y12.G2      net (fanout=4)        0.862   controller/N01
+    SLICE_X14Y12.CLK     Tgck                  0.600   controller/counter_tens_minutes<1>
+                                                       controller/counter_tens_minutes_mux0001<2>1
+                                                       controller/counter_tens_minutes_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.751ns (2.284ns logic, 5.467ns route)
+                                                       (29.5% logic, 70.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     42.414ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               controller/counter_cycles_21 (FF)
+  Destination:          controller/counter_tens_minutes_1 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      7.586ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: controller/counter_cycles_21 to controller/counter_tens_minutes_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y49.XQ      Tcko                  0.626   controller/counter_cycles<21>
+                                                       controller/counter_cycles_21
+    SLICE_X18Y44.G2      net (fanout=3)        1.197   controller/counter_cycles<21>
+    SLICE_X18Y44.COUT    Topcyg                0.954   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_lut<5>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.CIN     net (fanout=1)        0.000   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.XB      Tcinxb                0.383   controller/counter_tens_minutes_cmp_eq0000
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<6>
+    SLICE_X16Y17.F3      net (fanout=13)       2.435   controller/counter_tens_minutes_cmp_eq0000
+    SLICE_X16Y17.X       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_minutes_mux0001<0>11
+    SLICE_X14Y12.G2      net (fanout=4)        0.862   controller/N01
+    SLICE_X14Y12.CLK     Tgck                  0.600   controller/counter_tens_minutes<1>
+                                                       controller/counter_tens_minutes_mux0001<2>1
+                                                       controller/counter_tens_minutes_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.586ns (3.092ns logic, 4.494ns route)
+                                                       (40.8% logic, 59.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     42.466ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               controller/counter_cycles_3 (FF)
+  Destination:          controller/counter_tens_minutes_1 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      7.534ns (Levels of Logic = 5)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: controller/counter_cycles_3 to controller/counter_tens_minutes_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X21Y36.XQ      Tcko                  0.626   controller/counter_cycles<3>
+                                                       controller/counter_cycles_3
+    SLICE_X18Y43.G4      net (fanout=3)        1.041   controller/counter_cycles<3>
+    SLICE_X18Y43.COUT    Topcyg                0.954   controller/counter_tens_minutes_cmp_eq0000_wg_cy<3>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_lut<3>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<3>
+    SLICE_X18Y44.CIN     net (fanout=1)        0.000   controller/counter_tens_minutes_cmp_eq0000_wg_cy<3>
+    SLICE_X18Y44.COUT    Tbyp                  0.104   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<4>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.CIN     net (fanout=1)        0.000   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.XB      Tcinxb                0.383   controller/counter_tens_minutes_cmp_eq0000
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<6>
+    SLICE_X16Y17.F3      net (fanout=13)       2.435   controller/counter_tens_minutes_cmp_eq0000
+    SLICE_X16Y17.X       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_minutes_mux0001<0>11
+    SLICE_X14Y12.G2      net (fanout=4)        0.862   controller/N01
+    SLICE_X14Y12.CLK     Tgck                  0.600   controller/counter_tens_minutes<1>
+                                                       controller/counter_tens_minutes_mux0001<2>1
+                                                       controller/counter_tens_minutes_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.534ns (3.196ns logic, 4.338ns route)
+                                                       (42.4% logic, 57.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point controller/counter_tens_minutes_2 (SLICE_X14Y13.G2), 40 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     42.249ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               controller/current_state_FSM_FFd2 (FF)
+  Destination:          controller/counter_tens_minutes_2 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      7.751ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: controller/current_state_FSM_FFd2 to controller/counter_tens_minutes_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y45.XQ      Tcko                  0.626   controller/current_state_FSM_FFd2
+                                                       controller/current_state_FSM_FFd2
+    SLICE_X16Y17.G1      net (fanout=18)       4.143   controller/current_state_FSM_FFd2
+    SLICE_X16Y17.Y       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_seconds_mux0001<0>11_SW31
+    SLICE_X16Y17.F2      net (fanout=1)        0.462   controller/counter_tens_seconds_mux0001<0>11_SW31/O
+    SLICE_X16Y17.X       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_minutes_mux0001<0>11
+    SLICE_X14Y13.G2      net (fanout=4)        0.862   controller/N01
+    SLICE_X14Y13.CLK     Tgck                  0.600   controller/counter_tens_minutes<3>
+                                                       controller/counter_tens_minutes_mux0001<1>1
+                                                       controller/counter_tens_minutes_2
+    -------------------------------------------------  ---------------------------
+    Total                                      7.751ns (2.284ns logic, 5.467ns route)
+                                                       (29.5% logic, 70.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     42.414ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               controller/counter_cycles_21 (FF)
+  Destination:          controller/counter_tens_minutes_2 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      7.586ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: controller/counter_cycles_21 to controller/counter_tens_minutes_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y49.XQ      Tcko                  0.626   controller/counter_cycles<21>
+                                                       controller/counter_cycles_21
+    SLICE_X18Y44.G2      net (fanout=3)        1.197   controller/counter_cycles<21>
+    SLICE_X18Y44.COUT    Topcyg                0.954   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_lut<5>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.CIN     net (fanout=1)        0.000   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.XB      Tcinxb                0.383   controller/counter_tens_minutes_cmp_eq0000
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<6>
+    SLICE_X16Y17.F3      net (fanout=13)       2.435   controller/counter_tens_minutes_cmp_eq0000
+    SLICE_X16Y17.X       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_minutes_mux0001<0>11
+    SLICE_X14Y13.G2      net (fanout=4)        0.862   controller/N01
+    SLICE_X14Y13.CLK     Tgck                  0.600   controller/counter_tens_minutes<3>
+                                                       controller/counter_tens_minutes_mux0001<1>1
+                                                       controller/counter_tens_minutes_2
+    -------------------------------------------------  ---------------------------
+    Total                                      7.586ns (3.092ns logic, 4.494ns route)
+                                                       (40.8% logic, 59.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     42.466ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               controller/counter_cycles_3 (FF)
+  Destination:          controller/counter_tens_minutes_2 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      7.534ns (Levels of Logic = 5)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: controller/counter_cycles_3 to controller/counter_tens_minutes_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X21Y36.XQ      Tcko                  0.626   controller/counter_cycles<3>
+                                                       controller/counter_cycles_3
+    SLICE_X18Y43.G4      net (fanout=3)        1.041   controller/counter_cycles<3>
+    SLICE_X18Y43.COUT    Topcyg                0.954   controller/counter_tens_minutes_cmp_eq0000_wg_cy<3>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_lut<3>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<3>
+    SLICE_X18Y44.CIN     net (fanout=1)        0.000   controller/counter_tens_minutes_cmp_eq0000_wg_cy<3>
+    SLICE_X18Y44.COUT    Tbyp                  0.104   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<4>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.CIN     net (fanout=1)        0.000   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.XB      Tcinxb                0.383   controller/counter_tens_minutes_cmp_eq0000
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<6>
+    SLICE_X16Y17.F3      net (fanout=13)       2.435   controller/counter_tens_minutes_cmp_eq0000
+    SLICE_X16Y17.X       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_minutes_mux0001<0>11
+    SLICE_X14Y13.G2      net (fanout=4)        0.862   controller/N01
+    SLICE_X14Y13.CLK     Tgck                  0.600   controller/counter_tens_minutes<3>
+                                                       controller/counter_tens_minutes_mux0001<1>1
+                                                       controller/counter_tens_minutes_2
+    -------------------------------------------------  ---------------------------
+    Total                                      7.534ns (3.196ns logic, 4.338ns route)
+                                                       (42.4% logic, 57.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point controller/counter_tens_minutes_3 (SLICE_X14Y13.F2), 40 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     42.341ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               controller/current_state_FSM_FFd2 (FF)
+  Destination:          controller/counter_tens_minutes_3 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      7.659ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: controller/current_state_FSM_FFd2 to controller/counter_tens_minutes_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y45.XQ      Tcko                  0.626   controller/current_state_FSM_FFd2
+                                                       controller/current_state_FSM_FFd2
+    SLICE_X16Y17.G1      net (fanout=18)       4.143   controller/current_state_FSM_FFd2
+    SLICE_X16Y17.Y       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_seconds_mux0001<0>11_SW31
+    SLICE_X16Y17.F2      net (fanout=1)        0.462   controller/counter_tens_seconds_mux0001<0>11_SW31/O
+    SLICE_X16Y17.X       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_minutes_mux0001<0>11
+    SLICE_X14Y13.F2      net (fanout=4)        0.770   controller/N01
+    SLICE_X14Y13.CLK     Tfck                  0.600   controller/counter_tens_minutes<3>
+                                                       controller/counter_tens_minutes_mux0001<0>
+                                                       controller/counter_tens_minutes_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.659ns (2.284ns logic, 5.375ns route)
+                                                       (29.8% logic, 70.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     42.506ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               controller/counter_cycles_21 (FF)
+  Destination:          controller/counter_tens_minutes_3 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      7.494ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: controller/counter_cycles_21 to controller/counter_tens_minutes_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y49.XQ      Tcko                  0.626   controller/counter_cycles<21>
+                                                       controller/counter_cycles_21
+    SLICE_X18Y44.G2      net (fanout=3)        1.197   controller/counter_cycles<21>
+    SLICE_X18Y44.COUT    Topcyg                0.954   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_lut<5>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.CIN     net (fanout=1)        0.000   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.XB      Tcinxb                0.383   controller/counter_tens_minutes_cmp_eq0000
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<6>
+    SLICE_X16Y17.F3      net (fanout=13)       2.435   controller/counter_tens_minutes_cmp_eq0000
+    SLICE_X16Y17.X       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_minutes_mux0001<0>11
+    SLICE_X14Y13.F2      net (fanout=4)        0.770   controller/N01
+    SLICE_X14Y13.CLK     Tfck                  0.600   controller/counter_tens_minutes<3>
+                                                       controller/counter_tens_minutes_mux0001<0>
+                                                       controller/counter_tens_minutes_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.494ns (3.092ns logic, 4.402ns route)
+                                                       (41.3% logic, 58.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     42.558ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               controller/counter_cycles_3 (FF)
+  Destination:          controller/counter_tens_minutes_3 (FF)
+  Requirement:          50.000ns
+  Data Path Delay:      7.442ns (Levels of Logic = 5)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: controller/counter_cycles_3 to controller/counter_tens_minutes_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X21Y36.XQ      Tcko                  0.626   controller/counter_cycles<3>
+                                                       controller/counter_cycles_3
+    SLICE_X18Y43.G4      net (fanout=3)        1.041   controller/counter_cycles<3>
+    SLICE_X18Y43.COUT    Topcyg                0.954   controller/counter_tens_minutes_cmp_eq0000_wg_cy<3>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_lut<3>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<3>
+    SLICE_X18Y44.CIN     net (fanout=1)        0.000   controller/counter_tens_minutes_cmp_eq0000_wg_cy<3>
+    SLICE_X18Y44.COUT    Tbyp                  0.104   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<4>
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.CIN     net (fanout=1)        0.000   controller/counter_tens_minutes_cmp_eq0000_wg_cy<5>
+    SLICE_X18Y45.XB      Tcinxb                0.383   controller/counter_tens_minutes_cmp_eq0000
+                                                       controller/counter_tens_minutes_cmp_eq0000_wg_cy<6>
+    SLICE_X16Y17.F3      net (fanout=13)       2.435   controller/counter_tens_minutes_cmp_eq0000
+    SLICE_X16Y17.X       Tilo                  0.529   controller/N01
+                                                       controller/counter_tens_minutes_mux0001<0>11
+    SLICE_X14Y13.F2      net (fanout=4)        0.770   controller/N01
+    SLICE_X14Y13.CLK     Tfck                  0.600   controller/counter_tens_minutes<3>
+                                                       controller/counter_tens_minutes_mux0001<0>
+                                                       controller/counter_tens_minutes_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.442ns (3.196ns logic, 4.246ns route)
+                                                       (42.9% logic, 57.1% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_clk = PERIOD TIMEGRP "clk" 50 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point time_multiplexer/current_state_FSM_FFd2 (SLICE_X29Y11.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.757ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               time_multiplexer/current_state_FSM_FFd4 (FF)
+  Destination:          time_multiplexer/current_state_FSM_FFd2 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.757ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 50.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: time_multiplexer/current_state_FSM_FFd4 to time_multiplexer/current_state_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X28Y11.YQ      Tcko                  0.501   time_multiplexer/current_state_FSM_FFd4
+                                                       time_multiplexer/current_state_FSM_FFd4
+    SLICE_X29Y11.BX      net (fanout=10)       0.502   time_multiplexer/current_state_FSM_FFd4
+    SLICE_X29Y11.CLK     Tckdi       (-Th)     0.246   time_multiplexer/current_state_FSM_FFd2
+                                                       time_multiplexer/current_state_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                      0.757ns (0.255ns logic, 0.502ns route)
+                                                       (33.7% logic, 66.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point time_multiplexer/current_state_FSM_FFd4 (SLICE_X28Y11.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.810ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               time_multiplexer/current_state_FSM_FFd3 (FF)
+  Destination:          time_multiplexer/current_state_FSM_FFd4 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.810ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 50.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: time_multiplexer/current_state_FSM_FFd3 to time_multiplexer/current_state_FSM_FFd4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X26Y11.YQ      Tcko                  0.501   time_multiplexer/current_state_FSM_FFd3
+                                                       time_multiplexer/current_state_FSM_FFd3
+    SLICE_X28Y11.BY      net (fanout=3)        0.514   time_multiplexer/current_state_FSM_FFd3
+    SLICE_X28Y11.CLK     Tckdi       (-Th)     0.205   time_multiplexer/current_state_FSM_FFd4
+                                                       time_multiplexer/current_state_FSM_FFd4
+    -------------------------------------------------  ---------------------------
+    Total                                      0.810ns (0.296ns logic, 0.514ns route)
+                                                       (36.5% logic, 63.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point time_multiplexer/current_state_FSM_FFd1 (SLICE_X29Y11.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.815ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               time_multiplexer/current_state_FSM_FFd2 (FF)
+  Destination:          time_multiplexer/current_state_FSM_FFd1 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.815ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 50.000ns
+  Destination Clock:    clk_BUFGP rising at 50.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: time_multiplexer/current_state_FSM_FFd2 to time_multiplexer/current_state_FSM_FFd1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X29Y11.XQ      Tcko                  0.501   time_multiplexer/current_state_FSM_FFd2
+                                                       time_multiplexer/current_state_FSM_FFd2
+    SLICE_X29Y11.BY      net (fanout=16)       0.519   time_multiplexer/current_state_FSM_FFd2
+    SLICE_X29Y11.CLK     Tckdi       (-Th)     0.205   time_multiplexer/current_state_FSM_FFd2
+                                                       time_multiplexer/current_state_FSM_FFd1
+    -------------------------------------------------  ---------------------------
+    Total                                      0.815ns (0.296ns logic, 0.519ns route)
+                                                       (36.3% logic, 63.7% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clk = PERIOD TIMEGRP "clk" 50 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 48.498ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 50.000ns
+  Low pulse: 25.000ns
+  Low pulse limit: 0.751ns (Trpw)
+  Physical resource: bt_db1/current_state_FSM_FFd1/SR
+  Logical resource: bt_db1/current_state_FSM_FFd1/SR
+  Location pin: SLICE_X45Y45.SR
+  Clock network: reset_IBUF
+--------------------------------------------------------------------------------
+Slack: 48.498ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 50.000ns
+  High pulse: 25.000ns
+  High pulse limit: 0.751ns (Trpw)
+  Physical resource: bt_db1/current_state_FSM_FFd1/SR
+  Logical resource: bt_db1/current_state_FSM_FFd1/SR
+  Location pin: SLICE_X45Y45.SR
+  Clock network: reset_IBUF
+--------------------------------------------------------------------------------
+Slack: 48.498ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 50.000ns
+  Low pulse: 25.000ns
+  Low pulse limit: 0.751ns (Trpw)
+  Physical resource: time_multiplexer/current_state_FSM_FFd3/SR
+  Logical resource: time_multiplexer/current_state_FSM_FFd3/SR
+  Location pin: SLICE_X26Y11.SR
+  Clock network: reset_IBUF
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    7.751|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 5844 paths, 0 nets, and 619 connections
+
+Design statistics:
+   Minimum period:   7.751ns{1}   (Maximum frequency: 129.016MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Wed Jan 27 15:39:46 2021 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 329 MB
+
+
+
